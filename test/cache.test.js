@@ -1,9 +1,5 @@
 import {Cache} from "../src/cache";
 
-//test('it fails', () => {
-//    expect(false).toBe(true);
-//});
-
 test('get value', () => {
     const testCache =  new Cache();
 
@@ -23,7 +19,7 @@ test('get value 2', ()=> {
     expect(testCache.getCount(key)).toBe(1);
 });
 
-test('heap decreasing', ()=> {
+test('cache decreasing', ()=> {
     const testCache = new Cache();
 
     let key = 'tkey';
@@ -33,29 +29,22 @@ test('heap decreasing', ()=> {
     expect(testCache.getCount(key)).toBe(1);
 });
 
-test('heap decreasing 2', ()=> {
+test('cache decreasing 2', ()=> {
     const testCache = new Cache();
     let key = 'tkey';
     let value = 'tvalue';
     testCache.set(key, value, 3);
     testCache.set(key, 10);
     expect(testCache.getCount(key)).toBe(3);
-    expect(testCache.get(key)).toBe(10)
+    expect(testCache.get(key)).toBe(10);
 });
 
-test('get null value by end heap count', () => {
+test('get null value by end cache count', () => {
     const testCache = new Cache();
 
     testCache.set('tkey', 'tvalue', 0);
     expect(testCache.get('tkey')).toBeNull();
 });
-
-// test('get null value', () => {
-//     const testCache = new Cache();
-//
-//     testCache.set('tkey', null, 3);
-//     expect(testCache.get('tkey')).toBeNull();
-// });
 
 test('get value by undefined key', () => {
     const testCache = new Cache();
